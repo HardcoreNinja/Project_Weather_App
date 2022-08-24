@@ -1,0 +1,16 @@
+{
+  "name": "project_weather_app",
+  "version": "1.0.0",
+  "description": "the odin project: weather app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "anonymous_pc",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
