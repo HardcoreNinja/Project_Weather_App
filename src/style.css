@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Lato";
+    src: url("./Lato/Lato-Light.ttf");
+}
+
+* {
+    font-family: "Lato";
+}
+
+#content {
+    color: blue;
+}
