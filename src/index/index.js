@@ -1,3 +1,3 @@
 import '../style/style.css';
-import '../grid/createGrid.js';
-import '../nav/navContent.js';
+import '../grid/createGrid';
+import '../nav/navContent';

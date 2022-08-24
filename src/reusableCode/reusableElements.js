@@ -1,51 +1,51 @@
-const createForm = (form_class = "") => {
-    const form = document.createElement("form");
-    form.setAttribute("class", form_class);
-    return form;
-}
+const createForm = (formClass = '') => {
+  const form = document.createElement('form');
+  form.setAttribute('class', formClass);
+  return form;
+};
 
-const createLabel = (label_text_content) => {
-    const label = document.createElement("label");
-    label.textContent = label_text_content;
-    return label;
-}
+const createLabel = (labelTextContent) => {
+  const label = document.createElement('label');
+  label.textContent = labelTextContent;
+  return label;
+};
 
-const createInput = (input_type = "text", input_required = true, input_place_holder = "", input_class = "") => {
-    const input = document.createElement("input");
-    input.type = input_type;
-    input.required = input_required;
-    input.placeholder = input_place_holder;
-    input.setAttribute("class", input_class);
-    return input;
-}
+const createInput = (inputType = 'text', inputRequired = true, inputPlaceHolder = '', inputClass = '') => {
+  const input = document.createElement('input');
+  input.type = inputType;
+  input.required = inputRequired;
+  input.placeholder = inputPlaceHolder;
+  input.setAttribute('class', inputClass);
+  return input;
+};
 
-const createInputContainer = (label, input, container_class = "") => {
-    const container = document.createElement("div");
-    container.setAttribute("class", container_class);
-    container.append(label, input);
-    return container;
-}
+const createInputContainer = (label, input, containerClass = '') => {
+  const container = document.createElement('div');
+  container.setAttribute('class', containerClass);
+  container.append(label, input);
+  return container;
+};
 
-const createIcon = (icon_name) => {
-    const span = document.createElement("span");
-    span.classList.add("material-icons");
-    span.innerHTML = icon_name;
-    return span;
-}
+const createIcon = (iconName) => {
+  const span = document.createElement('span');
+  span.classList.add('material-icons');
+  span.innerHTML = iconName;
+  return span;
+};
 
-const createButton = (button_icon, button_text, button_type = "button", button_class = "") => {
-    const button = document.createElement("button");
-    button.type = button_type;
-    button.setAttribute("class", button_class);
-    button.append(createIcon(button_icon), button_text);
-    return button;
-}
+const createButton = (buttonIcon, buttonText, buttonType = 'button', buttonClass = '') => {
+  const button = document.createElement('button');
+  button.type = buttonType;
+  button.setAttribute('class', buttonClass);
+  button.append(createIcon(buttonIcon), buttonText);
+  return button;
+};
 
 export {
-    createForm,
-    createLabel,
-    createInput,
-    createInputContainer,
-    createIcon,
-    createButton
+  createForm,
+  createLabel,
+  createInput,
+  createInputContainer,
+  createIcon,
+  createButton,
 };

@@ -1,33 +1,25 @@
-import { createForm, createInput, createIcon, createButton } from "../reusableCode/reusableElements.js"
-import { getNav } from "../reusableCode/reusableGetters.js";
+import {
+  createForm, createInput, createIcon, createButton,
+} from '../reusableCode/reusableElements';
+import { getNav } from '../reusableCode/reusableGetters';
 
 const createSearchBar = () => {
-    const form = createForm("searchForm");
+  const form = createForm('searchForm');
 
-    form.append(
-        createInput(
-            "text",               //input_type
-            true,                 //input_required
-            "Search location...", //input_place_holder
-            "searchBar")
-        , createButton(
-            "search",         //button_icon_name
-            "",               //button_text
-            "submit",         //button_type
-            "submitButton")); //button_class
+  form.append(createInput('text', true, 'Search location...', 'searchBar'), createButton('search', '', 'submit', 'submitButton'));
 
-    return form;
-}
+  return form;
+};
 
 const createLogo = () => {
-    const container = document.createElement('div');
-    container.setAttribute("id", "logo");
-    container.append(createIcon("storm"), "iWeather");
-    return container;
-}
+  const container = document.createElement('div');
+  container.setAttribute('id', 'logo');
+  container.append(createIcon('storm'), 'iWeather');
+  return container;
+};
 
 function createNav() {
-    getNav().append(createLogo(), createSearchBar());
+  getNav().append(createLogo(), createSearchBar());
 }
 
 createNav();
