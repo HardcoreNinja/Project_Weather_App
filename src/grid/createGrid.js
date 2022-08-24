@@ -1,8 +1,12 @@
-const getContent = () => {
-    return document.getElementById("content");
+import { getContent } from "../reusableCode/reusableGetters.js";
+
+const createNav = () => {
+    const nav = document.createElement("div");
+    nav.setAttribute("id", "nav");
+    return nav;
 }
 
-const  createBirdsEye = () => {
+const createBirdsEye = () => {
     const birdsEye = document.createElement("div");
     birdsEye.setAttribute("id", "birdsEye");
     birdsEye.innerHTML = "birdsEye";
@@ -31,11 +35,12 @@ const createWeek = () => {
 }
 
 function createGrid() {
-   getContent().append(createBirdsEye(), 
-   createGap(), 
-   createStats(), 
-   createWeek()
-   );
+    getContent().append(createNav(),
+        createBirdsEye(),
+        createGap(),
+        createStats(),
+        createWeek()
+    );
 }
 
 createGrid();

@@ -1,0 +1,85 @@
+@font-face {
+    font-family: "Lato";
+    src: url("../Resources/Lato/Lato-Light.ttf");
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+:root {
+    background: orange;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Lato";
+    color: white;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 4fr 2fr;
+    grid-template-areas:
+        "nav nav nav"
+        "birdsEye gap stats"
+        "week week week"
+    ;
+
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-width: 100vh;
+}
+
+#nav{
+    grid-area: nav;
+    background: yellowgreen;
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center center;
+}
+
+#birdsEye {
+    grid-area: birdsEye;
+    background: blue;
+}
+
+#gap {
+    grid-area: gap;
+    background: orange;
+}
+
+#stats {
+    grid-area: stats;
+    background: red;
+}
+
+#week {
+    grid-area: week;
+    background: magenta;
+}
