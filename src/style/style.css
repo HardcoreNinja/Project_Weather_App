@@ -33,11 +33,35 @@
     background: orange;
 }
 
+::placeholder {
+    color: rgb(0, 145, 200);
+    opacity: 1;
+    font-weight: bolder;
+}
+
 * {
     margin: 0px;
     padding: 0px;
     font-family: "Lato";
     color: white;
+}
+
+button,
+button>span {
+    color: white;
+    transition: .75s;
+}
+
+button:hover>span {
+    color: rgb(0, 145, 200);
+    transform: scale(1.1);
+}
+
+form {
+    display: flex;
+    flex-flow: row wrap;
+    place-content: flex-start flex-start;
+    place-items: flex-start flex-start;
 }
 
 #content {
@@ -56,12 +80,67 @@
     max-width: 100vh;
 }
 
-#nav{
+#nav {
     grid-area: nav;
-    background: yellowgreen;
+    background: rgb(36, 41, 46);
+    display: flex;
+    flex-flow: column wrap;
+    place-content: center center;
+    place-items: center center;
+    gap: 20px;
+}
+
+#logo {
     display: flex;
     flex-flow: row wrap;
     place-content: center center;
+    place-items: center center;
+    gap: 10px;
+    font-size: 30px;
+    transition: .75s;
+}
+
+#logo>span {
+    font-size: 35px;
+}
+
+#logo:hover,
+#logo:hover>span {
+    transform: scale(1.1);
+    color: rgb(0, 145, 200);
+}
+
+.submitButton {
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center center;
+    width: 25px;
+    height: 25pxpx;
+    gap: 20px;
+    border-radius: 5px;
+    background: transparent;
+    border: 0px solid transparent;
+    color: white;
+
+}
+
+.searchForm>input {
+    border: 1px solid black;
+    transition: .75s;
+}
+
+.searchForm>input:hover,
+.searchForm>input:focus {
+    transform: scale(1.1);
+}
+
+.searchForm>input,
+.searchForm>input:focus {
+    background: transparent;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    outline: none;
 }
 
 #birdsEye {

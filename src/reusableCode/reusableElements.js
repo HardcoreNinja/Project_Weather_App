@@ -10,10 +10,11 @@ const createLabel = (label_text_content) => {
     return label;
 }
 
-const createInput = (input_type, input_required, input_class = "") => {
+const createInput = (input_type = "text", input_required = true, input_place_holder = "", input_class = "") => {
     const input = document.createElement("input");
     input.type = input_type;
     input.required = input_required;
+    input.placeholder = input_place_holder;
     input.setAttribute("class", input_class);
     return input;
 }
@@ -33,7 +34,7 @@ const createIcon = (icon_name) => {
 }
 
 const createButton = (button_icon, button_text, button_type = "button", button_class = "") => {
-    const button = document.createElement("input");
+    const button = document.createElement("button");
     button.type = button_type;
     button.setAttribute("class", button_class);
     button.append(createIcon(button_icon), button_text);
@@ -45,5 +46,6 @@ export {
     createLabel,
     createInput,
     createInputContainer,
+    createIcon,
     createButton
 };
