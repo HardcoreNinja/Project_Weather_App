@@ -1,17 +1,31 @@
 // eslint-disable-next-line import/no-mutable-exports
-let weatherObject = {};
+let metricWeatherObject = {};
+// eslint-disable-next-line import/no-mutable-exports
+let imperialWeatherObject = {};
 
 async function getWeather(latLon) {
   try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latLon[0]}&lon=${latLon[1]}&appid=2b45d207be643eaac353397dbb5eccc7`,
+    const metricResponse = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latLon[0]}&lon=${latLon[1]}&appid=2b45d207be643eaac353397dbb5eccc7&units=metric`,
       { mode: 'cors' },
     );
-    const weatherData = await response.json();
-    weatherObject = weatherData;
-    console.log(weatherObject);
+    const metricWeatherData = await metricResponse.json();
+    metricWeatherObject = metricWeatherData;
+    console.log(metricWeatherObject);
   } catch (error) {
-    console.log(`getWeather() Error: ${error}`);
+    console.log(`getWeather() Metric Error: ${error}`);
+  }
+
+  try {
+    const imperialResponse = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latLon[0]}&lon=${latLon[1]}&appid=2b45d207be643eaac353397dbb5eccc7&units=imperial`,
+      { mode: 'cors' },
+    );
+    const imperialWeatherData = await imperialResponse.json();
+    imperialWeatherObject = imperialWeatherData;
+    console.log(imperialWeatherObject);
+  } catch (error) {
+    console.log(`getWeather() Imperial Error: ${error}`);
   }
 }
 
@@ -35,4 +49,4 @@ function callOpenWeather() {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export { callOpenWeather, weatherObject };
+export { callOpenWeather, metricWeatherObject, imperialWeatherObject };
