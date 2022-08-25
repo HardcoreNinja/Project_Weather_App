@@ -1,3 +1,5 @@
+import { createBirdsEye } from '../birdsEye/birdsEyeContent';
+
 // eslint-disable-next-line import/no-mutable-exports
 let metricWeatherObject = {};
 // eslint-disable-next-line import/no-mutable-exports
@@ -29,6 +31,8 @@ async function getWeather(latLon) {
   } catch (error) {
     console.log(`getWeather() Imperial Error: ${error}`);
   }
+
+  createBirdsEye();
 }
 
 async function getGeoRegion() {
@@ -57,6 +61,8 @@ function toggleMetricImperialBool() {
   if (metricImperialBool) { button.innerHTML = 'Display °C'; } else {
     button.innerHTML = 'Display °F';
   }
+
+  createBirdsEye();
 }
 
 // eslint-disable-next-line import/prefer-default-export

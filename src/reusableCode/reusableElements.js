@@ -41,6 +41,26 @@ const createButton = (buttonIcon, buttonText, buttonType = 'button', buttonClass
   return button;
 };
 
+const createDiv = (divClass) => {
+  const div = document.createElement('div');
+  div.setAttribute('class', divClass);
+  return div;
+};
+
+const createH1 = (text, h1Class) => {
+  const h1 = document.createElement('h1');
+  h1.setAttribute('class', h1Class);
+  h1.innerHTML = text;
+  return h1;
+};
+
+const createP = (text, pClass) => {
+  const p = document.createElement('p');
+  p.setAttribute('class', pClass);
+  p.innerHTML = text;
+  return p;
+};
+
 export {
   createForm,
   createLabel,
@@ -48,4 +68,7 @@ export {
   createInputContainer,
   createIcon,
   createButton,
+  createDiv,
+  createH1,
+  createP,
 };

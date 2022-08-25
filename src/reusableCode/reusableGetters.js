@@ -1,12 +1,11 @@
-const getContent = () => {
-    return document.getElementById("content");
-}
+const getContent = () => document.getElementById('content');
 
-const getNav = () => {
-    return document.getElementById("nav");
-}
+const getNav = () => document.getElementById('nav');
+
+const getBirdsEye = () => document.getElementById('birdsEye');
 
 export {
-    getContent,
-    getNav
+  getContent,
+  getNav,
+  getBirdsEye,
 };
