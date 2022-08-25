@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-mutable-exports
+let weatherObject = {};
+
 async function getWeather(latLon) {
   try {
     const response = await fetch(
@@ -5,7 +8,8 @@ async function getWeather(latLon) {
       { mode: 'cors' },
     );
     const weatherData = await response.json();
-    console.log(weatherData);
+    weatherObject = weatherData;
+    console.log(weatherObject);
   } catch (error) {
     console.log(`getWeather() Error: ${error}`);
   }
@@ -26,6 +30,9 @@ async function getGeoRegion() {
   }
 }
 
-export function callOpenWeather() {
+function callOpenWeather() {
   getGeoRegion();
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export { callOpenWeather, weatherObject };
