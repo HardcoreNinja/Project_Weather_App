@@ -2,11 +2,13 @@ import {
   createForm, createInput, createIcon, createButton,
 } from '../reusableCode/reusableElements';
 import { getNav } from '../reusableCode/reusableGetters';
+import { callOpenWeather } from './navLogic';
 
 const createSearchBar = () => {
   const form = createForm('searchForm');
-
-  form.append(createInput('text', true, 'Search location...', 'searchBar'), createButton('search', '', 'submit', 'submitButton'));
+  const button = createButton('search', '', 'button', 'submitButton');
+  button.addEventListener('mouseup', callOpenWeather);
+  form.append(createInput('text', true, 'Search location...', 'searchBar'), button);
 
   return form;
 };
