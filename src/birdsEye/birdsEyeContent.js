@@ -1,14 +1,14 @@
 // eslint-disable-next-line import/no-cycle
 import {
-  getMetricWeatherDescription,
-  getImperialWeatherDescription,
+  getMetricMainWeatherDescription,
+  getImperialMainWeatherDescription,
   getMetricName,
   getImperialName,
   getDate,
   getMetricTemp,
   getImperialTemp,
-  getMetricMainWeatherDescription,
-  getImperialMainWeatherDescription,
+  getMetricWeatherDescription,
+  getImperialWeatherDescription,
 } from './birdsEyeLogic';
 
 // eslint-disable-next-line import/no-cycle
@@ -20,19 +20,19 @@ import { getBirdsEye } from '../reusableCode/reusableGetters';
 const createWidget = () => {
   const container = createDiv('birdsEyeWidgetContainer');
   if (metricImperialBool) {
-    const weatherDescription = createH1(getMetricWeatherDescription(), 'beWeatherDescription');
+    const mainWeatherDescription = createH1(getMetricMainWeatherDescription(), 'beMainWeatherDescription');
     const name = createP(getMetricName(), 'beName');
     const date = createP(getDate(), 'beDate');
     const temp = createH1(getMetricTemp(), 'beTemp');
-    const mainWeatherDescription = createP(getMetricMainWeatherDescription(), 'beMainWeatherDescription');
-    container.append(weatherDescription, name, date, temp, mainWeatherDescription);
+    const weatherDescription = createP(getMetricWeatherDescription(), 'beWeatherDescription');
+    container.append(mainWeatherDescription, name, date, temp, weatherDescription);
   } else if (!metricImperialBool) {
-    const weatherDescription = createH1(getImperialWeatherDescription(), 'beWeatherDescription');
+    const mainWeatherDescription = createH1(getImperialMainWeatherDescription(), 'beMainWeatherDescription');
     const name = createP(getImperialName(), 'beName');
     const date = createP(getDate(), 'beDate');
     const temp = createH1(getImperialTemp(), 'beTemp');
-    const mainWeatherDescription = createP(getImperialMainWeatherDescription(), 'beMainWeatherDescription');
-    container.append(weatherDescription, name, date, temp, mainWeatherDescription);
+    const weatherDescription = createP(getImperialWeatherDescription(), 'beWeatherDescription');
+    container.append(mainWeatherDescription, name, date, temp, weatherDescription);
   }
 
   return container;

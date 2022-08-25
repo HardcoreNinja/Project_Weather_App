@@ -18,11 +18,12 @@ function capitalizeFirstLetter(string) {
 
   return tempString;
 }
-const getMetricWeatherDescription = () => capitalizeFirstLetter(
-  metricWeatherObject.weather[0].description,
+
+const getMetricMainWeatherDescription = () => capitalizeFirstLetter(
+  metricWeatherObject.weather[0].main,
 );
-const getImperialWeatherDescription = () => capitalizeFirstLetter(
-  imperialWeatherObject.weather[0].description,
+const getImperialMainWeatherDescription = () => capitalizeFirstLetter(
+  imperialWeatherObject.weather[0].main,
 );
 
 const getMetricName = () => metricWeatherObject.name;
@@ -33,17 +34,17 @@ const getDate = () => new Date();
 const getMetricTemp = () => metricWeatherObject.main.temp;
 const getImperialTemp = () => imperialWeatherObject.main.temp;
 
-const getMetricMainWeatherDescription = () => metricWeatherObject.weather[0].main;
-const getImperialMainWeatherDescription = () => imperialWeatherObject.weather[0].main;
+const getMetricWeatherDescription = () => metricWeatherObject.weather[0].description;
+const getImperialWeatherDescription = () => imperialWeatherObject.weather[0].description;
 
 export {
-  getMetricWeatherDescription,
-  getImperialWeatherDescription,
+  getMetricMainWeatherDescription,
+  getImperialMainWeatherDescription,
   getMetricName,
   getImperialName,
   getDate,
   getMetricTemp,
   getImperialTemp,
-  getMetricMainWeatherDescription,
-  getImperialMainWeatherDescription,
+  getMetricWeatherDescription,
+  getImperialWeatherDescription,
 };
