@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
 
 // eslint-disable-next-line import/no-mutable-exports

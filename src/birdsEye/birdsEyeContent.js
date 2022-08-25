@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import {
   getMetricWeatherDescription,
   getImperialWeatherDescription,
@@ -10,6 +11,7 @@ import {
   getImperialMainWeatherDescription,
 } from './birdsEyeLogic';
 
+// eslint-disable-next-line import/no-cycle
 import { metricImperialBool } from '../nav/navLogic';
 
 import { createDiv, createH1, createP } from '../reusableCode/reusableElements';
@@ -45,4 +47,5 @@ function createBirdsEye() {
   getBirdsEye().append(createWidget());
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export { createBirdsEye };
