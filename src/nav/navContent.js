@@ -2,7 +2,7 @@ import {
   createForm, createInput, createIcon, createButton,
 } from '../reusableCode/reusableElements';
 import { getNav } from '../reusableCode/reusableGetters';
-import { callOpenWeather } from './navLogic';
+import { callOpenWeather, toggleMetricImperialBool } from './navLogic';
 
 const createSearchBar = () => {
   const form = createForm('searchForm');
@@ -20,8 +20,14 @@ const createLogo = () => {
   return container;
 };
 
+const createMetricImperialButton = () => {
+  const button = createButton('', 'Display °C', 'button', 'displayMetricImperial');
+  button.addEventListener('mousedown', toggleMetricImperialBool);
+  return button;
+};
+
 function createNav() {
-  getNav().append(createLogo(), createSearchBar());
+  getNav().append(createLogo(), createSearchBar(), createMetricImperialButton());
 }
 
 createNav();

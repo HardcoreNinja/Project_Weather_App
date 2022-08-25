@@ -2,6 +2,8 @@
 let metricWeatherObject = {};
 // eslint-disable-next-line import/no-mutable-exports
 let imperialWeatherObject = {};
+// eslint-disable-next-line import/no-mutable-exports
+let metricImperialBool = true;
 
 async function getWeather(latLon) {
   try {
@@ -48,5 +50,20 @@ function callOpenWeather() {
   getGeoRegion();
 }
 
+function toggleMetricImperialBool() {
+  metricImperialBool = !metricImperialBool;
+  const button = document.querySelector('.displayMetricImperial');
+
+  if (metricImperialBool) { button.innerHTML = 'Display °C'; } else {
+    button.innerHTML = 'Display °F';
+  }
+}
+
 // eslint-disable-next-line import/prefer-default-export
-export { callOpenWeather, metricWeatherObject, imperialWeatherObject };
+export {
+  callOpenWeather,
+  toggleMetricImperialBool,
+  metricWeatherObject,
+  imperialWeatherObject,
+  metricImperialBool,
+};
