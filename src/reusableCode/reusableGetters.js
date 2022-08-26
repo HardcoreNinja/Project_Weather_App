@@ -6,9 +6,12 @@ const getBirdsEye = () => document.getElementById('birdsEye');
 
 const getStats = () => document.getElementById('stats');
 
+const getWeek = () => document.getElementById('week');
+
 export {
   getContent,
   getNav,
   getBirdsEye,
   getStats,
+  getWeek,
 };

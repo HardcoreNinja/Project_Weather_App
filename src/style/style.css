@@ -210,6 +210,15 @@ form {
     background: rgb(36, 41, 46);
 }
 
+.statsWidgetContainer{
+    display: flex;
+    flex-flow: column wrap;
+    place-content: flex-start flex-start;
+    place-items: flex-start flex-start;
+    gap: 10px;
+    margin: 20px;
+}
+
 .statsItem {
     display: flex;
     flex-flow: row nowrap;
@@ -227,4 +236,13 @@ form {
 #week {
     grid-area: week;
     background: magenta;
+}
+
+.weekWidgetContainer{
+    display: flex;
+    flex-flow: wrap;
+    place-content: center flex-start;
+    place-items: center flex-start;
+    overflow: auto;
+
 }

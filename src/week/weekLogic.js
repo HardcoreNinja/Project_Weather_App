@@ -4,9 +4,23 @@ import { latLon } from '../nav/navLogic';
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
 // eslint-disable-next-line import/no-cycle
 import { createStats } from '../stats/statsContent';
+// eslint-disable-next-line import/no-cycle
+import { createWeek } from './weekContent';
 
+// eslint-disable-next-line import/no-mutable-exports
 let metricForecastObject = {};
+// eslint-disable-next-line import/no-mutable-exports
 let imperialForecastObject = {};
+
+const getDay = (date) => {
+  const options = {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  };
+  const normalizedDate = date.toLocaleString('en-US', options);
+
+  const stringArray = normalizedDate.split(', ');
+  return stringArray[0];
+};
 
 async function get5DayForecast() {
   try {
@@ -16,7 +30,7 @@ async function get5DayForecast() {
     );
     const forcastData = await forcastResponse.json();
     metricForecastObject = forcastData;
-    console.log(metricForecastObject.list[0]);
+    console.log(metricForecastObject);
   } catch (error) {
     console.log(error);
   }
@@ -28,14 +42,19 @@ async function get5DayForecast() {
     );
     const forcastData = await forcastResponse.json();
     imperialForecastObject = forcastData;
-    console.log(imperialForecastObject.list[0]);
+    console.log(imperialForecastObject);
   } catch (error) {
     console.log(error);
   }
 
   createBirdsEye();
   createStats();
+  createWeek();
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export { get5DayForecast };
+export {
+  getDay,
+  get5DayForecast,
+  metricForecastObject,
+  imperialForecastObject,
+};

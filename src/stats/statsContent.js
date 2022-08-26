@@ -49,7 +49,7 @@ const createWindSpeedContainer = (metricImperial) => {
 };
 
 const createWidget = () => {
-  const container = createDiv('birdsEyeWidgetContainer');
+  const container = createDiv('statsWidgetContainer');
   if (metricImperialBool) {
     container.append(
       createFeelsLikeContainer(metricImperialBool),
