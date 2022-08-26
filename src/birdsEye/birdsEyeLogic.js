@@ -35,11 +35,9 @@ const getDate = () => new Date();
 const getMetricTemp = () => metricWeatherObject.main.temp;
 const getImperialTemp = () => imperialWeatherObject.main.temp;
 
-const getMetricWeatherSymbol = () => {
-  const div = createDiv('weatherSymbol');
+const findSymbol = (weatherIconCode) => {
   let symbolName = '';
-
-  switch (`${metricWeatherObject.weather[0].icon}`) {
+  switch (weatherIconCode) {
     case '01d':
       symbolName = 'clear_day';
       break;
@@ -97,76 +95,17 @@ const getMetricWeatherSymbol = () => {
     default:
       console.log('INVALID_SWITCH_ENTRY | getMetricWeatherIcon() | birdsEyeLogic.js');
   }
+  return createSymbol(symbolName);
+};
 
-  div.append(createSymbol(symbolName));
-
+const getMetricWeatherSymbol = () => {
+  const div = createDiv('weatherSymbol');
+  div.append(findSymbol(`${metricWeatherObject.weather[0].icon}`));
   return div;
 };
 const getImperialWeatherSymbol = () => {
   const div = createDiv('weatherSymbol');
-  let symbolName = '';
-
-  switch (`${imperialWeatherObject.weather[0].icon}`) {
-    case '01d':
-      symbolName = 'clear_day';
-      break;
-    case '01n':
-      symbolName = 'clear_night';
-      break;
-    case '02d':
-      symbolName = 'partly_cloudy_day';
-      break;
-    case '02n':
-      symbolName = 'partly_cloudy_night';
-      break;
-    case '03d':
-      symbolName = 'cloudy';
-      break;
-    case '03n':
-      symbolName = 'cloudy';
-      break;
-    case '04d':
-      symbolName = 'filter_drama';
-      break;
-    case '04n':
-      symbolName = 'filter_drama';
-      break;
-    case '09d':
-      symbolName = 'rainy';
-      break;
-    case '09n':
-      symbolName = 'rainy';
-      break;
-    case '10d':
-      symbolName = 'rainy';
-      break;
-    case '10n':
-      symbolName = 'rainy';
-      break;
-    case '11d':
-      symbolName = 'thunderstorm';
-      break;
-    case '11n':
-      symbolName = 'thunderstorm';
-      break;
-    case '13d':
-      symbolName = 'ac_unit';
-      break;
-    case '13n':
-      symbolName = 'ac_unit';
-      break;
-    case '50d':
-      symbolName = 'foggy';
-      break;
-    case '50n':
-      symbolName = 'foggy';
-      break;
-    default:
-      console.log('INVALID_SWITCH_ENTRY | getMetricWeatherIcon() | birdsEyeLogic.js');
-  }
-
-  div.append(createSymbol(symbolName));
-
+  div.append(findSymbol(`${imperialWeatherObject.weather[0].icon}`));
   return div;
 };
 
