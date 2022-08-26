@@ -33,6 +33,13 @@ const createIcon = (iconName) => {
   return span;
 };
 
+const createSymbol = (symbolName) => {
+  const span = document.createElement('span');
+  span.classList.add('material-symbols-outlined');
+  span.innerHTML = symbolName;
+  return span;
+};
+
 const createButton = (buttonIcon, buttonText, buttonType = 'button', buttonClass = '') => {
   const button = document.createElement('button');
   button.type = buttonType;
@@ -67,6 +74,7 @@ export {
   createInput,
   createInputContainer,
   createIcon,
+  createSymbol,
   createButton,
   createDiv,
   createH1,
