@@ -1,7 +1,11 @@
 // eslint-disable-next-line import/no-cycle
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
+// eslint-disable-next-line import/no-cycle
 import { createStats } from '../stats/statsContent';
-
+// eslint-disable-next-line import/no-cycle
+import { get5DayForecast } from '../week/weekLogic';
+// eslint-disable-next-line import/no-mutable-exports
+let latLon = [];
 // eslint-disable-next-line import/no-mutable-exports
 let metricWeatherObject = {};
 // eslint-disable-next-line import/no-mutable-exports
@@ -31,11 +35,11 @@ async function getDateTime() {
   } catch (error) {
     console.log(error);
   }
-  createBirdsEye();
-  createStats();
+
+  get5DayForecast();
 }
 
-async function getWeather(latLon) {
+async function getWeather() {
   try {
     const metricResponse = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${latLon[0]}&lon=${latLon[1]}&appid=2b45d207be643eaac353397dbb5eccc7&units=metric`,
@@ -70,8 +74,8 @@ async function getGeoRegion() {
       { mode: 'cors' },
     );
     const geoData = await response.json();
-    const latLon = [geoData[0].lat, geoData[0].lon];
-    getWeather(latLon);
+    latLon = [geoData[0].lat, geoData[0].lon];
+    getWeather();
   } catch (error) {
     console.log(`getGeoRegion() Error: ${error}`);
   }
@@ -92,6 +96,7 @@ function toggleMetricImperialBool() {
 export {
   getGeoRegion,
   toggleMetricImperialBool,
+  latLon,
   metricWeatherObject,
   imperialWeatherObject,
   metricImperialBool,
