@@ -7,8 +7,8 @@ import {
   getDate,
   getMetricTemp,
   getImperialTemp,
-  getMetricWeatherDescription,
-  getImperialWeatherDescription,
+  getMetricWeatherSymbol,
+  getImperialWeatherSymbol,
 } from './birdsEyeLogic';
 
 // eslint-disable-next-line import/no-cycle
@@ -24,15 +24,15 @@ const createWidget = () => {
     const name = createP(getMetricName(), 'beName');
     const date = createP(getDate(), 'beDate');
     const temp = createH1(getMetricTemp(), 'beTemp');
-    const weatherDescription = createP(getMetricWeatherDescription(), 'beWeatherDescription');
-    container.append(mainWeatherDescription, name, date, temp, weatherDescription);
+    const weatherSymbol = getMetricWeatherSymbol();
+    container.append(mainWeatherDescription, name, date, temp, weatherSymbol);
   } else if (!metricImperialBool) {
     const mainWeatherDescription = createH1(getImperialMainWeatherDescription(), 'beMainWeatherDescription');
     const name = createP(getImperialName(), 'beName');
     const date = createP(getDate(), 'beDate');
     const temp = createH1(getImperialTemp(), 'beTemp');
-    const weatherDescription = createP(getImperialWeatherDescription(), 'beWeatherDescription');
-    container.append(mainWeatherDescription, name, date, temp, weatherDescription);
+    const weatherSymbol = getImperialWeatherSymbol();
+    container.append(mainWeatherDescription, name, date, temp, weatherSymbol);
   }
 
   return container;

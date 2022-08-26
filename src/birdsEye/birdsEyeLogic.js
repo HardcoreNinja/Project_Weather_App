@@ -34,8 +34,12 @@ const getDate = () => new Date();
 const getMetricTemp = () => metricWeatherObject.main.temp;
 const getImperialTemp = () => imperialWeatherObject.main.temp;
 
-const getMetricWeatherDescription = () => metricWeatherObject.weather[0].description;
-const getImperialWeatherDescription = () => imperialWeatherObject.weather[0].description;
+const getMetricWeatherSymbol = () => {
+  alert('Working!');
+};
+const getImperialWeatherSymbol = () => {
+
+};
 
 export {
   getMetricMainWeatherDescription,
@@ -45,6 +49,6 @@ export {
   getDate,
   getMetricTemp,
   getImperialTemp,
-  getMetricWeatherDescription,
-  getImperialWeatherDescription,
+  getMetricWeatherSymbol,
+  getImperialWeatherSymbol,
 };
