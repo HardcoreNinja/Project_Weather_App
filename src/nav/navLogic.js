@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
+import { createStats } from '../stats/statsContent';
 
 // eslint-disable-next-line import/no-mutable-exports
 let metricWeatherObject = {};
@@ -31,6 +32,7 @@ async function getDateTime() {
     console.log(error);
   }
   createBirdsEye();
+  createStats();
 }
 
 async function getWeather(latLon) {
@@ -83,6 +85,7 @@ function toggleMetricImperialBool() {
     button.innerHTML = 'Display °F';
   }
   createBirdsEye();
+  createStats();
 }
 
 // eslint-disable-next-line import/prefer-default-export

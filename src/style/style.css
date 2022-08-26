@@ -33,7 +33,8 @@
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
     font-style: normal;
-    font-size: 100px;  /* Preferred icon size */
+    font-size: 100px;
+    /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -41,7 +42,7 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-  }
+}
 
 :root {
     background: orange;
@@ -156,7 +157,7 @@ form {
     outline: none;
 }
 
-.displayMetricImperial{
+.displayMetricImperial {
     background: transparent;
     border: 0px solid transparent;
     color: white;
@@ -164,7 +165,7 @@ form {
     font-weight: bolder;
 }
 
-.displayMetricImperial:hover{
+.displayMetricImperial:hover {
     transform: scale(1.1);
     color: rgb(0, 145, 200);
     font-weight: bolder;
@@ -176,20 +177,20 @@ form {
     display: flex;
     flex-flow: column wrap;
     place-content: flex-start flex-start;
-    place-items: flex-start  flex-start;
+    place-items: flex-start flex-start;
     background: rgb(36, 41, 46);
 }
 
-.birdsEyeWidgetContainer{
+.birdsEyeWidgetContainer {
     display: flex;
     flex-flow: column wrap;
-    place-content: flex-start   flex-start ;
-    place-items:  flex-start  flex-start ;
+    place-content: flex-start flex-start;
+    place-items: flex-start flex-start;
     gap: 10px;
     margin: 20px;
 }
 
-.weatherIcon{
+.weatherIcon {
     display: flex;
     flex-flow: row wrap;
     place-content: center center;
@@ -204,6 +205,20 @@ form {
 #stats {
     grid-area: stats;
     background: red;
+}
+
+.statsItem {
+    display: flex;
+    flex-flow: row wrap;
+    place-content: flex-start flex-start;
+    place-items: flex-start flex-start;
+}
+
+.statsText {
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: flex-start flex-start;
+    place-items: flex-start flex-start;
 }
 
 #week {
