@@ -1,4 +1,5 @@
 import { getStats } from '../reusableCode/reusableGetters';
+// eslint-disable-next-line import/no-cycle
 import {
   getMetricFeelsLike,
   getImperialFeelsLike,
@@ -17,6 +18,7 @@ import {
 import {
   createDiv, createH1, createP, createSymbol,
 } from '../reusableCode/reusableElements';
+// eslint-disable-next-line import/no-cycle
 import { metricImperialBool } from '../nav/navLogic';
 
 const createFeelsLikeContainer = (metricImperial) => {
@@ -29,12 +31,30 @@ const createFeelsLikeContainer = (metricImperial) => {
   feelsLikeContainer.append(createSymbol('thermostat'), feelsLikeText);
   return feelsLikeContainer;
 };
+
+const createHumidityContainer = (metricImperial) => {
+  const humidityContainer = createDiv('statsItem');
+  const humidityText = createDiv('statsText');
+  const humidityP = createP('Humidity');
+  let humidityH1;
+  if (metricImperial) { humidityH1 = createH1(`${getMetricHumidity()} %`); } else if (!metricImperial) { humidityH1 = createH1(`${getImperialHumidity()} %`); }
+  humidityText.append(humidityP, humidityH1);
+  humidityContainer.append(createSymbol('humidity_mid'), humidityText);
+  return humidityContainer;
+};
+
 const createWidget = () => {
   const container = createDiv('birdsEyeWidgetContainer');
   if (metricImperialBool) {
-    container.append(createFeelsLikeContainer(metricImperialBool));
+    container.append(
+      createFeelsLikeContainer(metricImperialBool),
+      createHumidityContainer(metricImperialBool),
+    );
   } else if (!metricImperialBool) {
-    container.append(createFeelsLikeContainer(metricImperialBool));
+    container.append(
+      createFeelsLikeContainer(metricImperialBool),
+      createHumidityContainer(metricImperialBool),
+    );
   }
 
   return container;

@@ -173,7 +173,6 @@ form {
 
 #birdsEye {
     grid-area: birdsEye;
-    background: blue;
     display: flex;
     flex-flow: column wrap;
     place-content: flex-start flex-start;
@@ -199,12 +198,16 @@ form {
 
 #gap {
     grid-area: gap;
-    background: orange;
+    background: rgb(36, 41, 46);
 }
 
 #stats {
     grid-area: stats;
-    background: red;
+    display: flex;
+    flex-flow: column wrap;
+    place-content: flex-start flex-start;
+    place-items: flex-start flex-start;
+    background: rgb(36, 41, 46);
 }
 
 .statsItem {
