@@ -5,12 +5,6 @@ import {
   getImperialFeelsLike,
   getMetricHumidity,
   getImperialHumidity,
-  getMetricPressure,
-  getImperialPressure,
-  getMetricTempMax,
-  getImperialTempMax,
-  getMetricTempMin,
-  getImperialTempMin,
   getMetricWindSpeed,
   getImperialWindSpeed,
 } from './statsLogic';
