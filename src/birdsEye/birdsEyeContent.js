@@ -23,14 +23,14 @@ const createWidget = () => {
     const mainWeatherDescription = createH1(getMetricMainWeatherDescription(), 'beMainWeatherDescription');
     const name = createP(getMetricName(), 'beName');
     const date = createP(getDate(), 'beDate');
-    const temp = createH1(getMetricTemp(), 'beTemp');
+    const temp = createH1(`${getMetricTemp()} °C`, 'beTemp');
     const weatherSymbol = getMetricWeatherSymbol();
     container.append(mainWeatherDescription, name, date, temp, weatherSymbol);
   } else if (!metricImperialBool) {
     const mainWeatherDescription = createH1(getImperialMainWeatherDescription(), 'beMainWeatherDescription');
     const name = createP(getImperialName(), 'beName');
     const date = createP(getDate(), 'beDate');
-    const temp = createH1(getImperialTemp(), 'beTemp');
+    const temp = createH1(`${getImperialTemp()} °F`, 'beTemp');
     const weatherSymbol = getImperialWeatherSymbol();
     container.append(mainWeatherDescription, name, date, temp, weatherSymbol);
   }

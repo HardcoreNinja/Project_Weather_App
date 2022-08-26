@@ -21,10 +21,10 @@ function capitalizeFirstLetter(string) {
 }
 
 const getMetricMainWeatherDescription = () => capitalizeFirstLetter(
-  metricWeatherObject.weather[0].main,
+  metricWeatherObject.weather[0].description,
 );
 const getImperialMainWeatherDescription = () => capitalizeFirstLetter(
-  imperialWeatherObject.weather[0].main,
+  imperialWeatherObject.weather[0].description,
 );
 
 const getMetricName = () => metricWeatherObject.name;

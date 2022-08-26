@@ -33,7 +33,7 @@
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
+    font-size: 100px;  /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -135,7 +135,6 @@ form {
     background: transparent;
     border: 0px solid transparent;
     color: white;
-
 }
 
 .searchForm>input {
@@ -174,6 +173,27 @@ form {
 #birdsEye {
     grid-area: birdsEye;
     background: blue;
+    display: flex;
+    flex-flow: column wrap;
+    place-content: flex-start flex-start;
+    place-items: flex-start  flex-start;
+    background: rgb(36, 41, 46);
+}
+
+.birdsEyeWidgetContainer{
+    display: flex;
+    flex-flow: column wrap;
+    place-content: flex-start   flex-start ;
+    place-items:  flex-start  flex-start ;
+    gap: 10px;
+    margin: 20px;
+}
+
+.weatherIcon{
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center center;
+    place-items: center center;
 }
 
 #gap {
