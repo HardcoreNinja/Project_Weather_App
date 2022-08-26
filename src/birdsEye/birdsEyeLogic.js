@@ -30,8 +30,6 @@ const getImperialMainWeatherDescription = () => capitalizeFirstLetter(
 const getMetricName = () => metricWeatherObject.name;
 const getImperialName = () => imperialWeatherObject.name;
 
-const getDate = () => new Date();
-
 const getMetricTemp = () => metricWeatherObject.main.temp;
 const getImperialTemp = () => imperialWeatherObject.main.temp;
 
@@ -114,7 +112,6 @@ export {
   getImperialMainWeatherDescription,
   getMetricName,
   getImperialName,
-  getDate,
   getMetricTemp,
   getImperialTemp,
   getMetricWeatherSymbol,

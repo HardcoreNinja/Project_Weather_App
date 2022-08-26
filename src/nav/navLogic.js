@@ -8,6 +8,31 @@ let imperialWeatherObject = {};
 // eslint-disable-next-line import/no-mutable-exports
 let metricImperialBool = true;
 
+// eslint-disable-next-line import/no-mutable-exports
+let dateTimeString = '';
+
+async function getDateTime() {
+  try {
+    const timeResponse = await fetch(`https://timezone.abstractapi.com/v1/current_time/?api_key=ace80fd4a9364396af8761207fa31b31&location=${metricWeatherObject.coord.lat}, ${metricWeatherObject.coord.lon}`, { mode: 'cors' });
+    const timeData = await timeResponse.json();
+    const date = new Date(timeData.datetime);
+
+    const timeArray = date.toLocaleString(`en-${metricWeatherObject.sys.country}`, { hour12: 'true' }).split(', ');
+
+    const options = {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+    };
+    const normalizedDate = date.toLocaleString(`en-${metricWeatherObject.sys.country}`, options);
+
+    console.log(`${normalizedDate} ${timeArray[1]}`);
+
+    dateTimeString = `${normalizedDate} ${timeArray[1]}`;
+  } catch (error) {
+    console.log(error);
+  }
+  createBirdsEye();
+}
+
 async function getWeather(latLon) {
   try {
     const metricResponse = await fetch(
@@ -32,8 +57,7 @@ async function getWeather(latLon) {
   } catch (error) {
     console.log(`getWeather() Imperial Error: ${error}`);
   }
-
-  createBirdsEye();
+  getDateTime();
 }
 
 async function getGeoRegion() {
@@ -51,10 +75,6 @@ async function getGeoRegion() {
   }
 }
 
-function callOpenWeather() {
-  getGeoRegion();
-}
-
 function toggleMetricImperialBool() {
   metricImperialBool = !metricImperialBool;
   const button = document.querySelector('.displayMetricImperial');
@@ -62,15 +82,15 @@ function toggleMetricImperialBool() {
   if (metricImperialBool) { button.innerHTML = 'Display °C'; } else {
     button.innerHTML = 'Display °F';
   }
-
   createBirdsEye();
 }
 
 // eslint-disable-next-line import/prefer-default-export
 export {
-  callOpenWeather,
+  getGeoRegion,
   toggleMetricImperialBool,
   metricWeatherObject,
   imperialWeatherObject,
   metricImperialBool,
+  dateTimeString,
 };

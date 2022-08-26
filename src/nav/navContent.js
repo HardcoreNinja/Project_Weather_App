@@ -2,12 +2,12 @@ import {
   createForm, createInput, createIcon, createButton,
 } from '../reusableCode/reusableElements';
 import { getNav } from '../reusableCode/reusableGetters';
-import { callOpenWeather, toggleMetricImperialBool } from './navLogic';
+import { getGeoRegion, toggleMetricImperialBool } from './navLogic';
 
 const createSearchBar = () => {
   const form = createForm('searchForm');
   const button = createButton('search', '', 'button', 'submitButton');
-  button.addEventListener('mouseup', callOpenWeather);
+  button.addEventListener('mouseup', getGeoRegion);
   form.append(createInput('text', true, 'Search location...', 'searchBar'), button);
 
   return form;
