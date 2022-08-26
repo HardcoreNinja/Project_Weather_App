@@ -212,7 +212,7 @@ form {
 
 .statsItem {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     place-content: flex-start flex-start;
     place-items: flex-start flex-start;
 }

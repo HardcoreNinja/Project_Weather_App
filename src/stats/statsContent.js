@@ -43,17 +43,30 @@ const createHumidityContainer = (metricImperial) => {
   return humidityContainer;
 };
 
+const createWindSpeedContainer = (metricImperial) => {
+  const windSpeedContainer = createDiv('statsItem');
+  const windSpeedText = createDiv('statsText');
+  const windSpeedP = createP('Wind Speed');
+  let windSpeedH1;
+  if (metricImperial) { windSpeedH1 = createH1(`${getMetricWindSpeed()} km/h`); } else if (!metricImperial) { windSpeedH1 = createH1(`${getImperialWindSpeed()} mph`); }
+  windSpeedText.append(windSpeedP, windSpeedH1);
+  windSpeedContainer.append(createSymbol('air'), windSpeedText);
+  return windSpeedContainer;
+};
+
 const createWidget = () => {
   const container = createDiv('birdsEyeWidgetContainer');
   if (metricImperialBool) {
     container.append(
       createFeelsLikeContainer(metricImperialBool),
       createHumidityContainer(metricImperialBool),
+      createWindSpeedContainer(metricImperialBool),
     );
   } else if (!metricImperialBool) {
     container.append(
       createFeelsLikeContainer(metricImperialBool),
       createHumidityContainer(metricImperialBool),
+      createWindSpeedContainer(metricImperialBool),
     );
   }
 
