@@ -61,6 +61,10 @@
     color: white;
 }
 
+h1{
+    font-size: 25px;
+}
+
 button,
 button>span {
     color: white;
@@ -81,14 +85,13 @@ form {
 
 #content {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 4fr 2fr;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
     grid-template-areas:
         "nav nav nav"
         "birdsEye gap stats"
         "week week week"
     ;
-
     min-width: 100vw;
     min-height: 100vh;
     max-width: 100vw;
@@ -235,14 +238,33 @@ form {
 
 #week {
     grid-area: week;
-    background: magenta;
+    background: rgb(36, 41, 46);
+    display: flex;
+    flex-flow: column wrap;
+    place-content: center center;
+    place-items: center center;
+    gap:20px;
+    padding: 20px;
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 .weekWidgetContainer{
     display: flex;
-    flex-flow: wrap;
-    place-content: center flex-start;
-    place-items: center flex-start;
+    max-width: 90vw;
+    flex-flow: row nowrap;
+    place-content: flex-start flex-start;
+    place-items: flex-start flex-start;
+    padding: 20px;
+    gap: 20px;
     overflow: auto;
+}
 
+.weekItem{
+    display: flex;
+    flex-flow: column wrap;
+    min-width: 200px;
+    min-height: 200px;
+    place-content: center center;
+    place-items: center center;
 }

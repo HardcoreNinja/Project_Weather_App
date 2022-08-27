@@ -2,6 +2,7 @@
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
 // eslint-disable-next-line import/no-cycle
 import { createStats } from '../stats/statsContent';
+import { createWeek } from '../week/weekContent';
 // eslint-disable-next-line import/no-cycle
 import { get5DayForecast } from '../week/weekLogic';
 // eslint-disable-next-line import/no-mutable-exports
@@ -90,6 +91,7 @@ function toggleMetricImperialBool() {
   }
   createBirdsEye();
   createStats();
+  createWeek();
 }
 
 // eslint-disable-next-line import/prefer-default-export

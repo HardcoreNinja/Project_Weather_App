@@ -108,6 +108,7 @@ const getImperialWeatherSymbol = () => {
 };
 
 export {
+  capitalizeFirstLetter,
   getMetricMainWeatherDescription,
   getImperialMainWeatherDescription,
   getMetricName,
@@ -116,4 +117,5 @@ export {
   getImperialTemp,
   getMetricWeatherSymbol,
   getImperialWeatherSymbol,
+  findSymbol,
 };

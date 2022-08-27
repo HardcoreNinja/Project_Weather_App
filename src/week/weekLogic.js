@@ -12,14 +12,29 @@ let metricForecastObject = {};
 // eslint-disable-next-line import/no-mutable-exports
 let imperialForecastObject = {};
 
-const getDay = (date) => {
-  const options = {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+const formatDateTime = (index) => {
+  const timeOptions = {
+    hour12: 'true',
+    timeStyle: 'short',
   };
-  const normalizedDate = date.toLocaleString('en-US', options);
 
-  const stringArray = normalizedDate.split(', ');
-  return stringArray[0];
+  const dateOptions = {
+    weekday: 'long',
+  };
+
+  const date = new Date(metricForecastObject.list[index].dt_txt);
+  const normalizedDate = date.toLocaleTimeString(`en-${metricForecastObject.city.country}`, dateOptions);
+  const dateArray = normalizedDate.split(' ');
+  let normalizedTime = date.toLocaleTimeString(`en-${metricForecastObject.city.country}`, timeOptions);
+
+  if (normalizedTime.charAt(0) === '0' && normalizedTime.charAt(1) === '0') {
+    const slicedString = normalizedTime.slice(2, 8);
+    normalizedTime = `12${slicedString}`;
+  }
+
+  const newString = `${dateArray[0]} ${normalizedTime}`;
+  const stringArray = newString.split(' ');
+  return stringArray;
 };
 
 async function get5DayForecast() {
@@ -53,7 +68,7 @@ async function get5DayForecast() {
 }
 
 export {
-  getDay,
+  formatDateTime,
   get5DayForecast,
   metricForecastObject,
   imperialForecastObject,
