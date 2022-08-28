@@ -24,7 +24,6 @@ async function get5DayForecast() {
     );
     const forcastData = await forcastResponse.json();
     metricForecastObject = forcastData;
-    console.log(metricForecastObject);
   } catch (error) {
     console.log(error);
   }
@@ -36,7 +35,6 @@ async function get5DayForecast() {
     );
     const forcastData = await forcastResponse.json();
     imperialForecastObject = forcastData;
-    console.log(imperialForecastObject);
   } catch (error) {
     console.log(error);
   }
@@ -56,9 +54,6 @@ async function getDateTime() {
       weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
     };
     const normalizedDate = date.toLocaleString(`en-${metricWeatherObject.sys.country}`, options);
-
-    console.log(`${normalizedDate} ${timeArray[1]}`);
-
     dateTimeString = `${normalizedDate} ${timeArray[1]}`;
   } catch (error) {
     console.log(error);
@@ -73,7 +68,6 @@ async function getWeather() {
     );
     const metricWeatherData = await metricResponse.json();
     metricWeatherObject = metricWeatherData;
-    console.log(metricWeatherObject);
   } catch (error) {
     console.log(`getWeather() Metric Error: ${error}`);
   }
@@ -85,7 +79,6 @@ async function getWeather() {
     );
     const imperialWeatherData = await imperialResponse.json();
     imperialWeatherObject = imperialWeatherData;
-    console.log(imperialWeatherObject);
   } catch (error) {
     console.log(`getWeather() Imperial Error: ${error}`);
   }

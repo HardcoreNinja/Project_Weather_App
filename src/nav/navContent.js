@@ -21,7 +21,6 @@ const createSearchBar = () => {
   const button = createButton('search', '', 'button', 'submitButton');
   button.addEventListener('mousedown', callAPI);
   form.append(createInput('text', true, 'Search location...', 'searchBar'), button);
-
   return form;
 };
 

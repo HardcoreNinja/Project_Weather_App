@@ -14,7 +14,6 @@ import {
 import {
   createDiv, createH1, createP, createSymbol,
 } from '../globalCode/elements';
-// eslint-disable-next-line import/no-cycle
 import { metricImperialBool } from '../nav/navLogic';
 
 const createFeelsLikeContainer = (metricImperial) => {

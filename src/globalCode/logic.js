@@ -165,7 +165,6 @@ function hideFormatWarning() {
 }
 
 function capitalizeFirstLetter(string) {
-  console.log(string);
   const position = string.search(' ');
   let tempString = '';
   if (position !== -1) {
