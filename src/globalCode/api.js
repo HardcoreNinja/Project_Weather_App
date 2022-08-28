@@ -12,6 +12,10 @@ let dateTimeString = '';
 let metricForecastObject = {};
 let imperialForecastObject = {};
 
+function setFormatWarning(bool) {
+  displayFormatWarning = bool;
+}
+
 async function get5DayForecast() {
   try {
     const forcastResponse = await fetch(
@@ -113,6 +117,7 @@ async function callAPI() {
 
 export {
   callAPI,
+  setFormatWarning,
   displayFormatWarning,
   latLon,
   metricWeatherObject,

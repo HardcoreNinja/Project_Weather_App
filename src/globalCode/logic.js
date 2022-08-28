@@ -4,7 +4,7 @@ import { createSymbol } from './elements';
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
 import { createStats } from '../stats/statsContent';
 import { createWeek } from '../week/weekContent';
-import { metricWeatherObject, displayFormatWarning } from './api';
+import { metricWeatherObject, displayFormatWarning, setFormatWarning } from './api';
 import {
   d01,
   n01,
@@ -157,7 +157,9 @@ function hideFormatWarning() {
   if (displayFormatWarning) {
     const formatWarning = document.querySelector('.formatWarning');
     formatWarning.style.display = 'none';
-  } else {
+    setFormatWarning(false);
+    changeBGImage();
+  } else if (!displayFormatWarning) {
     changeBGImage();
   }
 }
