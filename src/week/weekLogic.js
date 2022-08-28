@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { latLon } from '../nav/navLogic';
+import { latLon, metricWeatherObject } from '../nav/navLogic';
 // eslint-disable-next-line import/no-cycle
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
 // eslint-disable-next-line import/no-cycle
@@ -8,6 +8,23 @@ import { createStats } from '../stats/statsContent';
 import { createWeek } from './weekContent';
 
 import d01 from '../resources/images/01d.jpg';
+import n01 from '../resources/images/01n.jpg';
+import d02 from '../resources/images/02d.jpg';
+import n02 from '../resources/images/02n.jpg';
+import d03 from '../resources/images/03d.jpg';
+import n03 from '../resources/images/03n.jpg';
+import d04 from '../resources/images/04d.jpg';
+import n04 from '../resources/images/04n.jpg';
+import d09 from '../resources/images/09d.jpg';
+import n09 from '../resources/images/09n.jpg';
+import d10 from '../resources/images/10d.jpg';
+import n10 from '../resources/images/10n.jpg';
+import d11 from '../resources/images/11d.jpg';
+import n11 from '../resources/images/11n.jpg';
+import d13 from '../resources/images/13d.jpg';
+import n13 from '../resources/images/13n.jpg';
+import d50 from '../resources/images/50d.jpg';
+import n50 from '../resources/images/50n.jpg';
 
 // eslint-disable-next-line import/no-mutable-exports
 let metricForecastObject = {};
@@ -17,6 +34,65 @@ let imperialForecastObject = {};
 function changeBGImage() {
   const root = document.documentElement;
   root.style.backgroundImage = `url('${d01}')`;
+
+  switch (`${metricWeatherObject.weather[0].icon}`) {
+    case '01d':
+      root.style.backgroundImage = `url('${d01}')`;
+      break;
+    case '01n':
+      root.style.backgroundImage = `url('${n01}')`;
+      break;
+    case '02d':
+      root.style.backgroundImage = `url('${d02}')`;
+      break;
+    case '02n':
+      root.style.backgroundImage = `url('${n02}')`;
+      break;
+    case '03d':
+      root.style.backgroundImage = `url('${d03}')`;
+      break;
+    case '03n':
+      root.style.backgroundImage = `url('${n03}')`;
+      break;
+    case '04d':
+      root.style.backgroundImage = `url('${d04}')`;
+      break;
+    case '04n':
+      root.style.backgroundImage = `url('${n04}')`;
+      break;
+    case '09d':
+      root.style.backgroundImage = `url('${d09}')`;
+      break;
+    case '09n':
+      root.style.backgroundImage = `url('${n09}')`;
+      break;
+    case '10d':
+      root.style.backgroundImage = `url('${d10}')`;
+      break;
+    case '10n':
+      root.style.backgroundImage = `url('${n10}')`;
+      break;
+    case '11d':
+      root.style.backgroundImage = `url('${d11}')`;
+      break;
+    case '11n':
+      root.style.backgroundImage = `url('${n11}')`;
+      break;
+    case '13d':
+      root.style.backgroundImage = `url('${d13}')`;
+      break;
+    case '13n':
+      root.style.backgroundImage = `url('${n13}')`;
+      break;
+    case '50d':
+      root.style.backgroundImage = `url('${d50}')`;
+      break;
+    case '50n':
+      root.style.backgroundImage = `url('${n50}')`;
+      break;
+    default:
+      console.log('INVALID_SWITCH_ENTRY | function changeBGImage() | weekLogic.js');
+  }
 }
 const formatDateTime = (index) => {
   const timeOptions = {
