@@ -2,7 +2,7 @@ import {
   createForm, createInput, createIcon, createButton, createP,
 } from '../reusableCode/reusableElements';
 import { getNav } from '../reusableCode/reusableGetters';
-import { getGeoRegion, hideFormatWarning, toggleMetricImperialBool } from './navLogic';
+import { getGeoRegion, toggleMetricImperialBool } from './navLogic';
 
 const createLogo = () => {
   const container = document.createElement('div');
