@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { metricWeatherObject, imperialWeatherObject } from '../nav/navLogic';
+import { metricWeatherObject, imperialWeatherObject } from '../globalCode/api';
 
 const getMetricFeelsLike = () => metricWeatherObject.main.feels_like;
 

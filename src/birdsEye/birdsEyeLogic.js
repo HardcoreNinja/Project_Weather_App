@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/extensions */
 // eslint-disable-next-line import/no-cycle
-import { metricWeatherObject, imperialWeatherObject } from '../nav/navLogic';
+import { metricWeatherObject, imperialWeatherObject } from '../globalCode/api';
 import { createDiv } from '../globalCode/elements';
 import { findSymbol, capitalizeFirstLetter } from '../globalCode/logic';
 

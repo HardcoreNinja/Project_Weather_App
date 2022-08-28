@@ -1,10 +1,7 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable import/no-cycle */
-import { latLon } from '../nav/navLogic';
-import { draw } from '../globalCode/logic';
-
-let metricForecastObject = {};
-let imperialForecastObject = {};
+import { metricForecastObject } from '../globalCode/api';
 
 const formatDateTime = (index) => {
   const timeOptions = {
@@ -31,36 +28,4 @@ const formatDateTime = (index) => {
   return stringArray;
 };
 
-async function get5DayForecast() {
-  try {
-    const forcastResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${latLon[0]}&lon=${latLon[1]}&appid=2b45d207be643eaac353397dbb5eccc7&units=metric`,
-      { mode: 'cors' },
-    );
-    const forcastData = await forcastResponse.json();
-    metricForecastObject = forcastData;
-    console.log(metricForecastObject);
-  } catch (error) {
-    console.log(error);
-  }
-
-  try {
-    const forcastResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${latLon[0]}&lon=${latLon[1]}&appid=2b45d207be643eaac353397dbb5eccc7&units=imperial`,
-      { mode: 'cors' },
-    );
-    const forcastData = await forcastResponse.json();
-    imperialForecastObject = forcastData;
-    console.log(imperialForecastObject);
-  } catch (error) {
-    console.log(error);
-  }
-  draw();
-}
-
-export {
-  formatDateTime,
-  get5DayForecast,
-  metricForecastObject,
-  imperialForecastObject,
-};
+export { formatDateTime };

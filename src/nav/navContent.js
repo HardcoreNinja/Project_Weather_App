@@ -1,8 +1,13 @@
 import {
-  createForm, createInput, createIcon, createButton, createP,
+  createForm,
+  createInput,
+  createIcon,
+  createButton,
+  createP,
 } from '../globalCode/elements';
 import { getNav } from '../globalCode/getters';
-import { getGeoRegion, toggleMetricImperialBool } from './navLogic';
+import { toggleMetricImperialBool } from './navLogic';
+import { getGeoRegion } from '../globalCode/api';
 
 const createLogo = () => {
   const container = document.createElement('div');

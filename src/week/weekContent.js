@@ -1,11 +1,10 @@
 /* eslint-disable import/no-cycle */
-import {
-  formatDateTime, metricForecastObject, imperialForecastObject,
-} from './weekLogic';
+import { metricForecastObject, imperialForecastObject } from '../globalCode/api';
 import { getWeek } from '../globalCode/getters';
 import { createDiv, createP, createH1 } from '../globalCode/elements';
 import { metricImperialBool } from '../nav/navLogic';
 import { findSymbol, capitalizeFirstLetter } from '../globalCode/logic';
+import { formatDateTime } from './weekLogic';
 
 const createMetricWeekItems = (weekWidgetContainer) => {
   for (let i = 0; i < metricForecastObject.list.length; i += 1) {

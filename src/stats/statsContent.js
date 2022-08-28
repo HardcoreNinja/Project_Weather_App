@@ -1,5 +1,6 @@
+/* eslint-disable import/no-cycle */
 import { getStats } from '../globalCode/getters';
-// eslint-disable-next-line import/no-cycle
+
 import {
   getMetricFeelsLike,
   getImperialFeelsLike,

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/no-cycle
 import {
   getMetricMainWeatherDescription,
@@ -10,8 +11,8 @@ import {
   getImperialWeatherSymbol,
 } from './birdsEyeLogic';
 
-// eslint-disable-next-line import/no-cycle
-import { metricImperialBool, dateTimeString } from '../nav/navLogic';
+import { metricImperialBool } from '../nav/navLogic';
+import { dateTimeString } from '../globalCode/api';
 
 import { createDiv, createH1, createP } from '../globalCode/elements';
 import { getBirdsEye } from '../globalCode/getters';

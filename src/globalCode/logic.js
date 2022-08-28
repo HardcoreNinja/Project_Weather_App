@@ -4,7 +4,7 @@ import { createSymbol } from './elements';
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
 import { createStats } from '../stats/statsContent';
 import { createWeek } from '../week/weekContent';
-import { metricWeatherObject, displayFormatWaring } from '../nav/navLogic';
+import { metricWeatherObject, displayFormatWarning } from './api';
 import {
   d01,
   n01,
@@ -90,7 +90,7 @@ const findSymbol = (weatherIconCode) => {
 };
 
 function hideFormatWarning() {
-  if (displayFormatWaring) {
+  if (displayFormatWarning) {
     const formatWarning = document.querySelector('.formatWarning');
     formatWarning.style.display = 'none';
   }
