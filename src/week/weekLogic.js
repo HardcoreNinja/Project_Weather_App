@@ -7,11 +7,17 @@ import { createStats } from '../stats/statsContent';
 // eslint-disable-next-line import/no-cycle
 import { createWeek } from './weekContent';
 
+import d01 from '../resources/images/01d.jpg';
+
 // eslint-disable-next-line import/no-mutable-exports
 let metricForecastObject = {};
 // eslint-disable-next-line import/no-mutable-exports
 let imperialForecastObject = {};
 
+function changeBGImage() {
+  const root = document.documentElement;
+  root.style.backgroundImage = `url('${d01}')`;
+}
 const formatDateTime = (index) => {
   const timeOptions = {
     hour12: 'true',
@@ -61,7 +67,7 @@ async function get5DayForecast() {
   } catch (error) {
     console.log(error);
   }
-
+  changeBGImage();
   createBirdsEye();
   createStats();
   createWeek();

@@ -44,8 +44,20 @@
     direction: ltr;
 }
 
+#bgOverlay{
+    position: flex;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
 :root {
-    background: orange;
+    background-image: url('../resources/images/preSearch.jpg') ;
+    background-position: center;
+    background-size: cover;
 }
 
 ::placeholder {
@@ -100,7 +112,7 @@ form {
 
 #nav {
     grid-area: nav;
-    background: rgb(36, 41, 46);
+    /* background: rgb(36, 41, 46); */
     display: flex;
     flex-flow: column wrap;
     place-content: center center;
@@ -180,7 +192,7 @@ form {
     flex-flow: column wrap;
     place-content: flex-start flex-start;
     place-items: flex-start flex-start;
-    background: rgb(36, 41, 46);
+    /* background: rgb(36, 41, 46); */
 }
 
 .birdsEyeWidgetContainer {
@@ -201,7 +213,7 @@ form {
 
 #gap {
     grid-area: gap;
-    background: rgb(36, 41, 46);
+    /* background: rgb(36, 41, 46); */
 }
 
 #stats {
@@ -210,7 +222,7 @@ form {
     flex-flow: column wrap;
     place-content: flex-start flex-start;
     place-items: flex-start flex-start;
-    background: rgb(36, 41, 46);
+    /* background: rgb(36, 41, 46); */
 }
 
 .statsWidgetContainer{
@@ -238,7 +250,7 @@ form {
 
 #week {
     grid-area: week;
-    background: rgb(36, 41, 46);
+    /* background: rgb(36, 41, 46); */
     display: flex;
     flex-flow: column wrap;
     place-content: center center;

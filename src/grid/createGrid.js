@@ -27,7 +27,6 @@ const createStats = () => {
 const createWeek = () => {
   const week = document.createElement('div');
   week.setAttribute('id', 'week');
-  week.innerHTML = 'week';
   return week;
 };
 
