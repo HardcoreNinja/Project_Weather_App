@@ -13,8 +13,8 @@ import {
 // eslint-disable-next-line import/no-cycle
 import { metricImperialBool, dateTimeString } from '../nav/navLogic';
 
-import { createDiv, createH1, createP } from '../reusableCode/reusableElements';
-import { getBirdsEye } from '../reusableCode/reusableGetters';
+import { createDiv, createH1, createP } from '../globalCode/elements';
+import { getBirdsEye } from '../globalCode/getters';
 
 const createWidget = () => {
   const container = createDiv('birdsEyeWidgetContainer');

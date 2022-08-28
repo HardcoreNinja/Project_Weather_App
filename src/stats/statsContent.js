@@ -1,4 +1,4 @@
-import { getStats } from '../reusableCode/reusableGetters';
+import { getStats } from '../globalCode/getters';
 // eslint-disable-next-line import/no-cycle
 import {
   getMetricFeelsLike,
@@ -11,7 +11,7 @@ import {
 
 import {
   createDiv, createH1, createP, createSymbol,
-} from '../reusableCode/reusableElements';
+} from '../globalCode/elements';
 // eslint-disable-next-line import/no-cycle
 import { metricImperialBool } from '../nav/navLogic';
 

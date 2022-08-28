@@ -1,13 +1,12 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import {
   formatDateTime, metricForecastObject, imperialForecastObject,
 } from './weekLogic';
-import { getWeek } from '../reusableCode/reusableGetters';
-import { createDiv, createP, createH1 } from '../reusableCode/reusableElements';
-// eslint-disable-next-line import/no-cycle
+import { getWeek } from '../globalCode/getters';
+import { createDiv, createP, createH1 } from '../globalCode/elements';
 import { metricImperialBool } from '../nav/navLogic';
-// eslint-disable-next-line import/no-cycle
-import { capitalizeFirstLetter, findSymbol } from '../birdsEye/birdsEyeLogic';
+import { capitalizeFirstLetter } from '../birdsEye/birdsEyeLogic';
+import { findSymbol } from '../globalCode/logic';
 
 const createMetricWeekItems = (weekWidgetContainer) => {
   for (let i = 0; i < metricForecastObject.list.length; i += 1) {

@@ -1,4 +1,4 @@
-import { getContent } from '../reusableCode/reusableGetters';
+import { getContent } from '../globalCode/getters';
 
 const createNav = () => {
   const nav = document.createElement('div');

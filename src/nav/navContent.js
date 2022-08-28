@@ -1,7 +1,7 @@
 import {
   createForm, createInput, createIcon, createButton, createP,
-} from '../reusableCode/reusableElements';
-import { getNav } from '../reusableCode/reusableGetters';
+} from '../globalCode/elements';
+import { getNav } from '../globalCode/getters';
 import { getGeoRegion, toggleMetricImperialBool } from './navLogic';
 
 const createLogo = () => {
