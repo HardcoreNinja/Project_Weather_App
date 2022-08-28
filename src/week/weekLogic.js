@@ -31,7 +31,6 @@ function hideFormatWarning() {
   if (displayFormatWaring) {
     const formatWarning = document.querySelector('.formatWarning');
     formatWarning.style.display = 'none';
-    displayFormatWaring = false;
   }
 }
 function changeBGImage() {
