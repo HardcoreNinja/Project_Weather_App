@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable import/no-cycle */
 import { metricForecastObject, imperialForecastObject } from '../globalCode/api';
 import { getWeek } from '../globalCode/getters';
@@ -79,5 +80,4 @@ function createWeek() {
   getWeek().append(createTitle(), createWidget());
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export { createWeek };

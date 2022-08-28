@@ -112,7 +112,6 @@ form {
 
 #nav {
     grid-area: nav;
-    /* background: rgb(36, 41, 46); */
     display: flex;
     flex-flow: column wrap;
     place-content: center center;
@@ -197,7 +196,6 @@ form {
     flex-flow: column wrap;
     place-content: flex-start flex-start;
     place-items: flex-start flex-start;
-    /* background: rgb(36, 41, 46); */
 }
 
 .birdsEyeWidgetContainer {
@@ -218,7 +216,6 @@ form {
 
 #gap {
     grid-area: gap;
-    /* background: rgb(36, 41, 46); */
 }
 
 #stats {
@@ -227,7 +224,6 @@ form {
     flex-flow: column wrap;
     place-content: flex-start flex-start;
     place-items: flex-start flex-start;
-    /* background: rgb(36, 41, 46); */
 }
 
 .statsWidgetContainer{
@@ -255,7 +251,6 @@ form {
 
 #week {
     grid-area: week;
-    /* background: rgb(36, 41, 46); */
     display: flex;
     flex-flow: column wrap;
     place-content: center center;

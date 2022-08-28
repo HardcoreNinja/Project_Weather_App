@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable import/no-cycle */
 import { getStats } from '../globalCode/getters';
 
@@ -77,5 +78,4 @@ function createStats() {
   getStats().append(createWidget());
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export { createStats };
