@@ -172,6 +172,11 @@ form {
     outline: none;
 }
 
+.formatWarning{
+    display: none;
+    color: rgb(170, 60, 61);
+}
+
 .displayMetricImperial {
     background: transparent;
     border: 0px solid transparent;

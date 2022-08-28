@@ -1,10 +1,8 @@
-// eslint-disable-next-line import/no-cycle
-import { latLon, metricWeatherObject } from '../nav/navLogic';
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-mutable-exports */
+/* eslint-disable import/no-cycle */
+import { latLon, metricWeatherObject, displayFormatWaring } from '../nav/navLogic';
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
-// eslint-disable-next-line import/no-cycle
 import { createStats } from '../stats/statsContent';
-// eslint-disable-next-line import/no-cycle
 import { createWeek } from './weekContent';
 
 import d01 from '../resources/images/01d.jpg';
@@ -26,11 +24,16 @@ import n13 from '../resources/images/13n.jpg';
 import d50 from '../resources/images/50d.jpg';
 import n50 from '../resources/images/50n.jpg';
 
-// eslint-disable-next-line import/no-mutable-exports
 let metricForecastObject = {};
-// eslint-disable-next-line import/no-mutable-exports
 let imperialForecastObject = {};
 
+function hideFormatWarning() {
+  if (displayFormatWaring) {
+    const formatWarning = document.querySelector('.formatWarning');
+    formatWarning.style.display = 'none';
+    displayFormatWaring = false;
+  }
+}
 function changeBGImage() {
   const root = document.documentElement;
   root.style.backgroundImage = `url('${d01}')`;
@@ -147,6 +150,7 @@ async function get5DayForecast() {
   createBirdsEye();
   createStats();
   createWeek();
+  hideFormatWarning();
 }
 
 export {

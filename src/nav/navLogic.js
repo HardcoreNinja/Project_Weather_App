@@ -1,22 +1,22 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-mutable-exports */
+/* eslint-disable import/no-cycle */
+
 import { createBirdsEye } from '../birdsEye/birdsEyeContent';
-// eslint-disable-next-line import/no-cycle
 import { createStats } from '../stats/statsContent';
 import { createWeek } from '../week/weekContent';
-// eslint-disable-next-line import/no-cycle
 import { get5DayForecast } from '../week/weekLogic';
-// eslint-disable-next-line import/no-mutable-exports
-let latLon = [];
-// eslint-disable-next-line import/no-mutable-exports
-let metricWeatherObject = {};
-// eslint-disable-next-line import/no-mutable-exports
-let imperialWeatherObject = {};
-// eslint-disable-next-line import/no-mutable-exports
-let metricImperialBool = true;
 
-// eslint-disable-next-line import/no-mutable-exports
+let displayFormatWaring = false;
+let latLon = [];
+let metricWeatherObject = {};
+let imperialWeatherObject = {};
+let metricImperialBool = true;
 let dateTimeString = '';
 
+function hideFormatWarning() {
+  const formatWarning = document.querySelector('.formatWarning');
+  formatWarning.style.display = 'none';
+}
 async function getDateTime() {
   try {
     const timeResponse = await fetch(`https://timezone.abstractapi.com/v1/current_time/?api_key=ace80fd4a9364396af8761207fa31b31&location=${metricWeatherObject.coord.lat}, ${metricWeatherObject.coord.lon}`, { mode: 'cors' });
@@ -79,6 +79,9 @@ async function getGeoRegion() {
     getWeather();
   } catch (error) {
     console.log(`getGeoRegion() Error: ${error}`);
+    const formatWarning = document.querySelector('.formatWarning');
+    formatWarning.style.display = 'block';
+    displayFormatWaring = true;
   }
 }
 
@@ -96,8 +99,10 @@ function toggleMetricImperialBool() {
 
 // eslint-disable-next-line import/prefer-default-export
 export {
+  hideFormatWarning,
   getGeoRegion,
   toggleMetricImperialBool,
+  displayFormatWaring,
   latLon,
   metricWeatherObject,
   imperialWeatherObject,
