@@ -71,7 +71,7 @@ async function getGeoRegion() {
   try {
     const searchBar = document.querySelector('.searchBar');
     const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${searchBar.value}&limit=5&appid=2b45d207be643eaac353397dbb5eccc7`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${searchBar.value}&limit=5&appid=2b45d207be643eaac353397dbb5eccc7`,
       { mode: 'cors' },
     );
     const geoData = await response.json();
