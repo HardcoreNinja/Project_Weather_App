@@ -7,7 +7,7 @@ import {
 } from '../globalCode/elements';
 import { getNav } from '../globalCode/getters';
 import { toggleMetricImperialBool } from './navLogic';
-import { getGeoRegion } from '../globalCode/api';
+import { callAPI } from '../globalCode/api';
 
 const createLogo = () => {
   const container = document.createElement('div');
@@ -19,7 +19,7 @@ const createLogo = () => {
 const createSearchBar = () => {
   const form = createForm('searchForm');
   const button = createButton('search', '', 'button', 'submitButton');
-  button.addEventListener('mousedown', getGeoRegion);
+  button.addEventListener('mousedown', callAPI);
   form.append(createInput('text', true, 'Search location...', 'searchBar'), button);
 
   return form;

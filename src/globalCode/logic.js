@@ -89,13 +89,6 @@ const findSymbol = (weatherIconCode) => {
   return createSymbol(symbolName);
 };
 
-function hideFormatWarning() {
-  if (displayFormatWarning) {
-    const formatWarning = document.querySelector('.formatWarning');
-    formatWarning.style.display = 'none';
-  }
-}
-
 function changeBGImage() {
   const root = document.documentElement;
   root.style.backgroundImage = `url('${d01}')`;
@@ -160,6 +153,15 @@ function changeBGImage() {
   }
 }
 
+function hideFormatWarning() {
+  if (displayFormatWarning) {
+    const formatWarning = document.querySelector('.formatWarning');
+    formatWarning.style.display = 'none';
+  } else {
+    changeBGImage();
+  }
+}
+
 function capitalizeFirstLetter(string) {
   console.log(string);
   const position = string.search(' ');
@@ -179,19 +181,18 @@ function capitalizeFirstLetter(string) {
 }
 
 function draw() {
-  changeBGImage();
   createBirdsEye();
   createStats();
   createWeek();
   hideFormatWarning();
 }
 
-function redraw() {
+function redrawStats() {
   createBirdsEye();
   createStats();
   createWeek();
 }
 
 export {
-  findSymbol, draw, redraw, capitalizeFirstLetter,
+  findSymbol, draw, redrawStats, capitalizeFirstLetter,
 };

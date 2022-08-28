@@ -2,7 +2,7 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable import/no-cycle */
 
-import { redraw } from '../globalCode/logic';
+import { redrawStats } from '../globalCode/logic';
 
 let metricImperialBool = true;
 
@@ -13,7 +13,7 @@ function toggleMetricImperialBool() {
   if (metricImperialBool) { button.innerHTML = 'Display °C'; } else {
     button.innerHTML = 'Display °F';
   }
-  redraw();
+  redrawStats();
 }
 
 export { toggleMetricImperialBool, metricImperialBool };

@@ -36,6 +36,7 @@ async function get5DayForecast() {
   } catch (error) {
     console.log(error);
   }
+
   draw();
 }
 
@@ -58,8 +59,6 @@ async function getDateTime() {
   } catch (error) {
     console.log(error);
   }
-
-  get5DayForecast();
 }
 
 async function getWeather() {
@@ -86,7 +85,6 @@ async function getWeather() {
   } catch (error) {
     console.log(`getWeather() Imperial Error: ${error}`);
   }
-  getDateTime();
 }
 
 async function getGeoRegion() {
@@ -98,7 +96,6 @@ async function getGeoRegion() {
     );
     const geoData = await response.json();
     latLon = [geoData[0].lat, geoData[0].lon];
-    getWeather();
   } catch (error) {
     console.log(`getGeoRegion() Error: ${error}`);
     const formatWarning = document.querySelector('.formatWarning');
@@ -107,8 +104,15 @@ async function getGeoRegion() {
   }
 }
 
+async function callAPI() {
+  await getGeoRegion();
+  await getWeather();
+  await getDateTime();
+  await get5DayForecast();
+}
+
 export {
-  getGeoRegion,
+  callAPI,
   displayFormatWarning,
   latLon,
   metricWeatherObject,
