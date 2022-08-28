@@ -5,8 +5,7 @@ import {
 import { getWeek } from '../globalCode/getters';
 import { createDiv, createP, createH1 } from '../globalCode/elements';
 import { metricImperialBool } from '../nav/navLogic';
-import { capitalizeFirstLetter } from '../birdsEye/birdsEyeLogic';
-import { findSymbol } from '../globalCode/logic';
+import { findSymbol, capitalizeFirstLetter } from '../globalCode/logic';
 
 const createMetricWeekItems = (weekWidgetContainer) => {
   for (let i = 0; i < metricForecastObject.list.length; i += 1) {

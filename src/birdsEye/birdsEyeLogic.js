@@ -1,26 +1,9 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/extensions */
 // eslint-disable-next-line import/no-cycle
 import { metricWeatherObject, imperialWeatherObject } from '../nav/navLogic';
 import { createDiv } from '../globalCode/elements';
-import { findSymbol } from '../globalCode/logic';
-
-function capitalizeFirstLetter(string) {
-  console.log(string);
-  const position = string.search(' ');
-  let tempString = '';
-  if (position !== -1) {
-    const stringArray = string.split(' ');
-
-    for (let i = 0; i < stringArray.length; i += 1) {
-      const text = stringArray[i].charAt(0).toUpperCase() + stringArray[i].slice(1);
-      tempString += `${text} `;
-    }
-  } else {
-    tempString = string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
-  return tempString;
-}
+import { findSymbol, capitalizeFirstLetter } from '../globalCode/logic';
 
 const getMetricMainWeatherDescription = () => capitalizeFirstLetter(
   metricWeatherObject.weather[0].description,
@@ -47,7 +30,6 @@ const getImperialWeatherSymbol = () => {
 };
 
 export {
-  capitalizeFirstLetter,
   getMetricMainWeatherDescription,
   getImperialMainWeatherDescription,
   getMetricName,

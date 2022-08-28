@@ -1,5 +1,30 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/prefer-default-export */
 import { createSymbol } from './elements';
+import { createBirdsEye } from '../birdsEye/birdsEyeContent';
+import { createStats } from '../stats/statsContent';
+import { createWeek } from '../week/weekContent';
+import { metricWeatherObject, displayFormatWaring } from '../nav/navLogic';
+import {
+  d01,
+  n01,
+  d02,
+  n02,
+  d03,
+  n03,
+  d04,
+  n04,
+  d09,
+  n09,
+  d10,
+  n10,
+  d11,
+  n11,
+  d13,
+  n13,
+  d50,
+  n50,
+} from './media';
 
 const findSymbol = (weatherIconCode) => {
   let symbolName = '';
@@ -64,4 +89,109 @@ const findSymbol = (weatherIconCode) => {
   return createSymbol(symbolName);
 };
 
-export { findSymbol };
+function hideFormatWarning() {
+  if (displayFormatWaring) {
+    const formatWarning = document.querySelector('.formatWarning');
+    formatWarning.style.display = 'none';
+  }
+}
+
+function changeBGImage() {
+  const root = document.documentElement;
+  root.style.backgroundImage = `url('${d01}')`;
+
+  switch (`${metricWeatherObject.weather[0].icon}`) {
+    case '01d':
+      root.style.backgroundImage = `url('${d01}')`;
+      break;
+    case '01n':
+      root.style.backgroundImage = `url('${n01}')`;
+      break;
+    case '02d':
+      root.style.backgroundImage = `url('${d02}')`;
+      break;
+    case '02n':
+      root.style.backgroundImage = `url('${n02}')`;
+      break;
+    case '03d':
+      root.style.backgroundImage = `url('${d03}')`;
+      break;
+    case '03n':
+      root.style.backgroundImage = `url('${n03}')`;
+      break;
+    case '04d':
+      root.style.backgroundImage = `url('${d04}')`;
+      break;
+    case '04n':
+      root.style.backgroundImage = `url('${n04}')`;
+      break;
+    case '09d':
+      root.style.backgroundImage = `url('${d09}')`;
+      break;
+    case '09n':
+      root.style.backgroundImage = `url('${n09}')`;
+      break;
+    case '10d':
+      root.style.backgroundImage = `url('${d10}')`;
+      break;
+    case '10n':
+      root.style.backgroundImage = `url('${n10}')`;
+      break;
+    case '11d':
+      root.style.backgroundImage = `url('${d11}')`;
+      break;
+    case '11n':
+      root.style.backgroundImage = `url('${n11}')`;
+      break;
+    case '13d':
+      root.style.backgroundImage = `url('${d13}')`;
+      break;
+    case '13n':
+      root.style.backgroundImage = `url('${n13}')`;
+      break;
+    case '50d':
+      root.style.backgroundImage = `url('${d50}')`;
+      break;
+    case '50n':
+      root.style.backgroundImage = `url('${n50}')`;
+      break;
+    default:
+      console.log('INVALID_SWITCH_ENTRY | function changeBGImage() | weekLogic.js');
+  }
+}
+
+function capitalizeFirstLetter(string) {
+  console.log(string);
+  const position = string.search(' ');
+  let tempString = '';
+  if (position !== -1) {
+    const stringArray = string.split(' ');
+
+    for (let i = 0; i < stringArray.length; i += 1) {
+      const text = stringArray[i].charAt(0).toUpperCase() + stringArray[i].slice(1);
+      tempString += `${text} `;
+    }
+  } else {
+    tempString = string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  return tempString;
+}
+
+function draw() {
+  changeBGImage();
+  createBirdsEye();
+  createStats();
+  createWeek();
+  hideFormatWarning();
+}
+
+function redraw() {
+  createBirdsEye();
+  createStats();
+  createWeek();
+}
+
+export {
+  findSymbol, draw, redraw, capitalizeFirstLetter,
+};

@@ -1,10 +1,8 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable import/no-cycle */
 
-import { createBirdsEye } from '../birdsEye/birdsEyeContent';
-import { createStats } from '../stats/statsContent';
-import { createWeek } from '../week/weekContent';
 import { get5DayForecast } from '../week/weekLogic';
+import { redraw } from '../globalCode/logic';
 
 let displayFormatWaring = false;
 let latLon = [];
@@ -13,10 +11,6 @@ let imperialWeatherObject = {};
 let metricImperialBool = true;
 let dateTimeString = '';
 
-function hideFormatWarning() {
-  const formatWarning = document.querySelector('.formatWarning');
-  formatWarning.style.display = 'none';
-}
 async function getDateTime() {
   try {
     const timeResponse = await fetch(`https://timezone.abstractapi.com/v1/current_time/?api_key=ace80fd4a9364396af8761207fa31b31&location=${metricWeatherObject.coord.lat}, ${metricWeatherObject.coord.lon}`, { mode: 'cors' });
@@ -92,14 +86,11 @@ function toggleMetricImperialBool() {
   if (metricImperialBool) { button.innerHTML = 'Display °C'; } else {
     button.innerHTML = 'Display °F';
   }
-  createBirdsEye();
-  createStats();
-  createWeek();
+  redraw();
 }
 
 // eslint-disable-next-line import/prefer-default-export
 export {
-  hideFormatWarning,
   getGeoRegion,
   toggleMetricImperialBool,
   displayFormatWaring,
