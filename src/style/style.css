@@ -257,8 +257,8 @@ form {
     grid-area: stats;
     display: flex;
     flex-flow: column wrap;
-    place-content: flex-start flex-start;
-    place-items: flex-start flex-start;
+    place-content: flex-end flex-start;
+    place-items: flex-end flex-start;
 }
 
 .statsWidgetContainer{
