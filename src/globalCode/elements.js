@@ -1,3 +1,5 @@
+import { getContent } from './getters';
+
 const createForm = (formClass = '') => {
   const form = document.createElement('form');
   form.setAttribute('class', formClass);
@@ -68,6 +70,18 @@ const createP = (text, pClass) => {
   return p;
 };
 
+const createLoadingScreen = () => {
+  const content = getContent();
+  const overlay = createDiv('loadingOverlay');
+  overlay.style.display = 'flex';
+  const loader = createDiv('loader');
+  loader.style.display = 'block';
+  overlay.append(loader);
+  content.append(overlay);
+
+  return overlay;
+};
+
 export {
   createForm,
   createLabel,
@@ -79,4 +93,5 @@ export {
   createDiv,
   createH1,
   createP,
+  createLoadingScreen,
 };

@@ -110,6 +110,35 @@ form {
     max-width: 100vh;
 }
 
+.loadingOverlay{
+    display: none;
+    position: fixed;
+    flex-flow:column wrap;
+    place-content: center center;
+    place-items:  center center;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid rgb(0, 145, 200); /* Blue */
+    border-radius: 50%;
+    z-index: 1; /* Sit on top */
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 #nav {
     grid-area: nav;
     display: flex;

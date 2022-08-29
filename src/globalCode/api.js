@@ -1,6 +1,8 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable import/prefer-default-export */
+import { createLoadingScreen } from './elements';
+import { getContent, getLoader, getLoadingOverlay } from './getters';
 import { draw } from './logic';
 
 let displayFormatWarning = false;
@@ -102,10 +104,11 @@ async function getGeoRegion() {
 }
 
 async function callAPI() {
+  const loadingOverlay = createLoadingScreen();
   await getGeoRegion();
   await getWeather();
   await getDateTime();
-  await get5DayForecast();
+  await get5DayForecast().finally(loadingOverlay.remove());
 }
 
 export {
