@@ -2,7 +2,6 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable import/prefer-default-export */
 import { createLoadingScreen } from './elements';
-import { getContent, getLoader, getLoadingOverlay } from './getters';
 import { draw } from './logic';
 
 let displayFormatWarning = false;

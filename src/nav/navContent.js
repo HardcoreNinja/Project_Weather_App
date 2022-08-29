@@ -1,5 +1,5 @@
 import {
-  createForm,
+  createDiv,
   createInput,
   createIcon,
   createButton,
@@ -17,12 +17,16 @@ const createLogo = () => {
 };
 
 const createSearchBar = () => {
-  const form = createForm('searchForm');
+  const div = createDiv('searchForm');
   const button = createButton('search', '', 'button', 'submitButton');
   button.addEventListener('mousedown', callAPI);
-  form.append(createInput('text', true, 'Search location...', 'searchBar'), button);
-  return form;
+  div.append(createInput('text', true, 'Search location...', 'searchBar'), button);
+  return div;
 };
+
+document.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') { callAPI(); }
+});
 
 const createFormatWarning = () => {
   const text = createP('Please format your search the following ways: <br> {Santiago(city), CL(country code)}, {Jacksonville(city), Florida(state)}, {Indianapolis{city}}, {China (country)}', 'formatWarning');
