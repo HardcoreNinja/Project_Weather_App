@@ -17,6 +17,8 @@ import n13 from '../resources/images/13n.jpg';
 import d50 from '../resources/images/50d.jpg';
 import n50 from '../resources/images/50n.jpg';
 
+import favicon from '../resources/ico/favicon.ico';
+
 export {
   d01,
   n01,
@@ -36,4 +38,5 @@ export {
   n13,
   d50,
   n50,
+  favicon,
 };
