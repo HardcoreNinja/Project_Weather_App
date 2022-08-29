@@ -13,6 +13,8 @@ let dateTimeString = '';
 let metricForecastObject = {};
 let imperialForecastObject = {};
 
+let drawBool = true;
+
 function setFormatWarning(bool) {
   displayFormatWarning = bool;
   const formatWarning = document.querySelector('.formatWarning');
@@ -45,9 +47,10 @@ async function get5DayForecast() {
     imperialForecastObject = forcastData;
   } catch (error) {
     console.log(error);
+    drawBool = false;
   }
 
-  draw();
+  if (drawBool) { draw(); }
 }
 
 async function getDateTime() {
@@ -65,6 +68,7 @@ async function getDateTime() {
     dateTimeString = `${normalizedDate} ${timeArray[1]}`;
   } catch (error) {
     console.log(error);
+    drawBool = false;
   }
 }
 
@@ -78,6 +82,7 @@ async function getWeather() {
     metricWeatherObject = metricWeatherData;
   } catch (error) {
     console.log(`getWeather() Metric Error: ${error}`);
+    drawBool = false;
   }
 
   try {
@@ -89,6 +94,7 @@ async function getWeather() {
     imperialWeatherObject = imperialWeatherData;
   } catch (error) {
     console.log(`getWeather() Imperial Error: ${error}`);
+    drawBool = false;
   }
 }
 
@@ -105,11 +111,13 @@ async function getGeoRegion() {
   } catch (error) {
     console.log(`getGeoRegion() Error: ${error}`);
     setFormatWarning(true);
+    drawBool = false;
   }
 }
 
 async function callAPI() {
   const loadingOverlay = createLoadingScreen();
+  drawBool = true;
   await getGeoRegion();
   await getWeather();
   await getDateTime();
