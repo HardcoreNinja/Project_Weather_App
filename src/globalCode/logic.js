@@ -154,14 +154,7 @@ function changeBGImage() {
 }
 
 function hideFormatWarning() {
-  if (displayFormatWarning) {
-    const formatWarning = document.querySelector('.formatWarning');
-    formatWarning.style.display = 'none';
-    setFormatWarning(false);
-    changeBGImage();
-  } else if (!displayFormatWarning) {
-    changeBGImage();
-  }
+  if (!displayFormatWarning) { setFormatWarning(false); }
 }
 
 function capitalizeFirstLetter(string) {
@@ -186,6 +179,7 @@ function draw() {
   createStats();
   createWeek();
   hideFormatWarning();
+  changeBGImage();
 }
 
 function redrawStats() {

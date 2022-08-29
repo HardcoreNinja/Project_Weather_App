@@ -15,6 +15,13 @@ let imperialForecastObject = {};
 
 function setFormatWarning(bool) {
   displayFormatWarning = bool;
+  const formatWarning = document.querySelector('.formatWarning');
+
+  if (displayFormatWarning) {
+    formatWarning.style.display = 'block';
+  } else {
+    formatWarning.style.display = 'none';
+  }
 }
 
 async function get5DayForecast() {
@@ -94,11 +101,10 @@ async function getGeoRegion() {
     );
     const geoData = await response.json();
     latLon = [geoData[0].lat, geoData[0].lon];
+    setFormatWarning(false);
   } catch (error) {
     console.log(`getGeoRegion() Error: ${error}`);
-    const formatWarning = document.querySelector('.formatWarning');
-    formatWarning.style.display = 'block';
-    displayFormatWarning = true;
+    setFormatWarning(true);
   }
 }
 
